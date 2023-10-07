@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cellphone;
 use Illuminate\Http\Request;
+use App\Models\Cellphone;
 
 class CellphoneController extends Controller
 {
@@ -12,7 +12,9 @@ class CellphoneController extends Controller
      */
     public function index()
     {
-        //
+        return view('cellphone.index', [
+            'cellphones' => Cellphone::all()
+        ]);
     }
 
     /**
@@ -34,7 +36,7 @@ class CellphoneController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cellphone $cellphone)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +44,7 @@ class CellphoneController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cellphone $cellphone)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +52,7 @@ class CellphoneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cellphone $cellphone)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +60,7 @@ class CellphoneController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cellphone $cellphone)
+    public function destroy(string $id)
     {
         //
     }
