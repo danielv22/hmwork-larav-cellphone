@@ -26,15 +26,33 @@ class CellphoneController extends Controller
      */
     public function create()
     {
-        //
+        return view('cellphone.create', [
+            'brands' => Brands::cases(),
+            'resolutions' => Resolutions::cases(),
+            'procesorBrands' => ProcesorBrands::cases(),
+            'RAMMemories' => RAMMemory::cases(),
+            'storages' => Storage::cases()
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $cellphone = new Cellphone();
+        $cellphone->referencia = $request->referencia;
+        $cellphone->marca = $request->marca;
+        $cellphone->tamano_pantalla = $request->tamano_pantalla;
+        $cellphone->resolucion = $request->resolucion;
+        $cellphone->marca_procesador = $request->marca_procesador;
+        $cellphone->velocidad_procesador = $request->velocidad_procesador;
+        $cellphone->memoria_ram = $request->memoria_ram;
+        $cellphone->memoria_interna = $request->memoria_interna;
+        $cellphone->precio = $request->precio;
+        $cellphone->descuento = $request->descuento / 100;
+        $cellphone->save();
+
+        return redirect()->route('cellphones.index');
     }
 
     /**

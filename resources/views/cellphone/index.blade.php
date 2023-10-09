@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="" class="btn btn-primary">Create</a>
+            <a href="{{ route('cellphones.create') }}" class="btn btn-primary">Agregar</a>
         </div>
     </div>
     <div class="row">
@@ -50,7 +50,9 @@
                             <a href="" class="btn btn-sm btn-info">Ver</a>
                             <a href="{{ route('cellphones.edit', $cellphone)  }}" class="btn btn-sm btn-warning">Editar</a>
                             <form action="" method="POST" class="d-inline">
-                                <input type="hidden" name="_token" value="tQBU7CdcOvuQjSfLihKYeWiF9TMXT7ul0AyRZI8D">                                        <input type="hidden" name="_method" value="DELETE">                                        <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                                <input type="hidden" name="_token" value="tQBU7CdcOvuQjSfLihKYeWiF9TMXT7ul0AyRZI8D">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
                             </form>
                         </td>
                     </tr>
