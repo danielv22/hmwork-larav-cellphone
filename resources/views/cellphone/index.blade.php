@@ -55,7 +55,7 @@
                                 <td>${{ number_format($cellphone->precio, 2, ',', '.')  }}</td>
                                 <td>{{ $cellphone->descuento }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-info">Ver</a>
+                                    <a href="{{ route('cellphones.show', $cellphone) }}" class="btn btn-sm btn-info">Ver</a>
                                     <a href="{{ route('cellphones.edit', $cellphone)  }}" class="btn btn-sm btn-warning">Editar</a>
                                     <form action="{{ route('cellphones.destroy', $cellphone)  }}" method="post"
                                           class="d-inline"

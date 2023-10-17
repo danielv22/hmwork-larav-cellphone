@@ -49,9 +49,12 @@ class CellphoneController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Cellphone $cellphone)
     {
-        //
+        $cellphone['descuento'] = $cellphone['descuento'] * 100;
+        return view('cellphone.show', [
+            'cellphone' => $cellphone
+        ]);
     }
 
     /**
