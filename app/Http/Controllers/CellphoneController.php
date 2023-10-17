@@ -39,18 +39,9 @@ class CellphoneController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request) {
-        $cellphone = new Cellphone();
-        $cellphone->referencia = $request->referencia;
-        $cellphone->marca = $request->marca;
-        $cellphone->tamano_pantalla = $request->tamano_pantalla;
-        $cellphone->resolucion = $request->resolucion;
-        $cellphone->marca_procesador = $request->marca_procesador;
-        $cellphone->velocidad_procesador = $request->velocidad_procesador;
-        $cellphone->memoria_ram = $request->memoria_ram;
-        $cellphone->memoria_interna = $request->memoria_interna;
-        $cellphone->precio = $request->precio;
-        $cellphone->descuento = $request->descuento / 100;
-        $cellphone->save();
+        $cellphone = $request->all();
+        $cellphone['descuento'] = $request->descuento / 100;
+        Cellphone::create($cellphone);
 
         return redirect()->route('cellphones.index');
     }
@@ -81,17 +72,8 @@ class CellphoneController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Cellphone $cellphone) {
-        $cellphone->referencia = $request->referencia;
-        $cellphone->marca = $request->marca;
-        $cellphone->tamano_pantalla = $request->tamano_pantalla;
-        $cellphone->resolucion = $request->resolucion;
-        $cellphone->marca_procesador = $request->marca_procesador;
-        $cellphone->velocidad_procesador = $request->velocidad_procesador;
-        $cellphone->memoria_ram = $request->memoria_ram;
-        $cellphone->memoria_interna = $request->memoria_interna;
-        $cellphone->precio = $request->precio;
-        $cellphone->descuento = $request->descuento / 100;
-        $cellphone->update();
+        $request['descuento'] = $request->descuento / 100;
+        $cellphone->update($request->all());
 
         return redirect()->route('cellphones.index');
     }
